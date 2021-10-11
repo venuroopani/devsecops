@@ -15,11 +15,11 @@ fi
 
 CRITICAL_COUNT=`cat $THRESHOLD_FILE | grep Failures | cut -d ":" -f 7 | cut -b 2`
 HIGH_COUNT=`cat $THRESHOLD_FILE | grep Failures | cut -d ":" -f 6 | cut -d "," -f 1`
-MEDIUM_COUNT=`$THRESHOLD_FILE | grep Failures | cut -d ":" -f 5 | cut -d "," -f 1`
+MEDIUM_COUNT=`cat $THRESHOLD_FILE | grep Failures | cut -d ":" -f 5 | cut -d "," -f 1`
 
 #check the results and failed the build if CRITIAL_COUNT, HIGH_COUNT, MEDIUM_COUNT found in the trivy-reports.logs
 
-if [ CRITIAL_COUNT == 0 ] && [ HIGH_COUNT == 0 ] && [ MEDIUM_COUNT == 0 ]; then
+if [[ CRITICAL_COUNT == 0 ]] && [[ HIGH_COUNT == 0 ]] && [[ MEDIUM_COUNT == 0 ]]; then
    echo "docker image reports are looks good and no vulnerabilities found..................!"
 else
   echo "docker image have below vulnerabilites.............!"
