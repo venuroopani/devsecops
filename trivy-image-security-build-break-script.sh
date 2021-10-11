@@ -6,7 +6,7 @@ THRESHOLD_FILE=trivy-reports.logs
 
 # check the trivy-reports.logs file exsist or not in the current directory
 
-if [[ !  -f $THRESHOLD_FILE ]]; then
+if [[ -f $THRESHOLD_FILE ]]; then
     echo "$THRESHOLD_FILE exsist!"
 else
     echo "$THRESHOLD_FILE doesnot exsist! please check build logs.............!"
