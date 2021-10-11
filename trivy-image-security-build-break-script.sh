@@ -13,9 +13,9 @@ else
     exit 1
 fi
 
-CRITICAL_COUNT=`cat $THRESHOLD_FILE | grep Failures | cut -d ":" -f 6 | cut -d "," -f 1`
+CRITICAL_COUNT=`cat $THRESHOLD_FILE | grep Failures | cut -d ":" -f 7 | cut -b 2`
 HIGH_COUNT=`cat $THRESHOLD_FILE | grep Failures | cut -d ":" -f 6 | cut -d "," -f 1`
-MEDIUM_COUNT=`$THRESHOLD_FILE | grep Failures | cut -d ":" -f 6 | cut -d "," -f 1`
+MEDIUM_COUNT=`$THRESHOLD_FILE | grep Failures | cut -d ":" -f 5 | cut -d "," -f 1`
 
 #check the results and failed the build if CRITIAL_COUNT, HIGH_COUNT, MEDIUM_COUNT found in the trivy-reports.logs
 
